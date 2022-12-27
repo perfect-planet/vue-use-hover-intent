@@ -1,5 +1,9 @@
 {
   "extends": [
     "@nuxtjs/eslint-config-typescript"
+  ],
+  "comma-dangle": [
+    "error",
+    "always-multiline"
   ]
 }
