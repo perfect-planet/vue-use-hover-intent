@@ -33,7 +33,6 @@ export default defineConfig({
   test: {
     global: true,
     environment: 'happy-dom',
-    include: ['tests/**/*.spec.ts'],
-    exclude: ['tests/transform.spec.ts'],
+    include: ['test/**/*.spec.ts'],
   },
 })
