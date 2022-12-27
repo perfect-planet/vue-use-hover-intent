@@ -1,6 +1,6 @@
 {
   "name": "vue-use-hover-intent",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Vue 3 composable hover detection that waits until the user's mouse slows down enough.",
   "repository": "perfect-planet/vue-use-hover-intent",
   "keywords": [

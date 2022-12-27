@@ -10,9 +10,7 @@ This is a Vue 3 port of [react-use-hoverintent](https://github.com/natelindev/re
 ## Demo
 [plnt.cz/hoverintent](https://plnt.cz/hoverintent/)
 
-## Usage
-
-### Install:
+## Install
 
 ```sh
 # npm
@@ -25,9 +23,9 @@ yarn add vue-use-hover-intent
 pnpm install vue-use-hover-intent
 ```
 
-### Use:
+## Use
 
-Import the composable and use it in your components setup function, passing in the element you want to detect hover on.
+Import the composable and pass in a ref of the element you want to detect hover on.
 It returns a boolean ref that is true when the user is hovering over the element.
 
 ```vue
@@ -58,28 +56,24 @@ It returns a boolean ref that is true when the user is hovering over the element
 ```
 
 ## Options
-You can pass following options to the `useHoverIntent` composable as a second parameter:
+You can pass following options to the composable as a second parameter:
 
 
-```timeout``` : Delay in milliseconds before the onMouseOut callback is fired. If the user mouses back over the
+*timeout*: Delay in milliseconds before the onMouseOut callback is fired. If the user mouses back over the
 element before the timeout has expired the onMouseOut callback will not be called (nor will the onMouseOver callback be
 called). This is primarily to protect against sloppy/human mousing trajectories that temporarily (and unintentionally)
-take the user off of the target element... giving them time to return.
+take the user off of the target element... giving them time to return (defaults to ```100```).
 
-Default ```timeout: 100```
 
-```sensitivity``` : If the mouse travels fewer than this number of pixels between polling intervals, then the onMouseOver
+*sensitivity*: If the mouse travels fewer than this number of pixels between polling intervals, then the onMouseOver
 callback will be called. With the minimum sensitivity threshold of 1, the mouse must not move between polling intervals.
-With higher sensitivity thresholds you are more likely to receive a false positive.
+With higher sensitivity thresholds you are more likely to receive a false positive (defaults to ```6```).
 
-Default ```sensitivity: 6```
 
-```interval``` : The number of milliseconds hoverIntent waits between reading/comparing mouse coordinates. When the user's
+*interval* : The number of milliseconds hoverIntent waits between reading/comparing mouse coordinates. When the user's
 mouse first enters the element its coordinates are recorded. The soonest the onMouseOut callback can be called is after
 a single polling interval. Setting the polling interval higher will increase the delay before the first possible
-onMouseOver call, but also increases the time to the next point of comparison.
-
-Default ```interval: 100```
+onMouseOver call, but also increases the time to the next point of comparison (defaults to ```100```).
 
 
 ## 💻 Development
