@@ -1,0 +1,11 @@
+body {
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  overflow-y: scroll;
+  min-height: 100vh;
+  margin: 0;
+  background: #211818;
+  color: #211818;
+  font-family: monospace;
+}
