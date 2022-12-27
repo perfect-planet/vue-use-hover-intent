@@ -1,36 +1,79 @@
-# packageName
+# vue-use-hover-intent
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions][github-actions-src]][github-actions-href]
-[![Codecov][codecov-src]][codecov-href]
 
-> Package description
+> Vue 3 composable event listener that waits until the user's mouse slows down enough and then calls a function.
+
+This is a Vue 3 port of [react-use-hoverintent](https://github.com/natelindev/react-use-hoverintent)
+
+## Demo
+[plnt.cz/hoverintent](https://plnt.cz/hoverintent/)
 
 ## Usage
 
-Install package:
-
 ```sh
 # npm
-npm install packageName
+npm install vue-use-hover-intent
 
 # yarn
-yarn add packageName
+yarn add vue-use-hover-intent
 
 # pnpm
-pnpm install packageName
+pnpm install vue-use-hover-intent
 ```
 
-Import:
+```vue
+<script setup lang="ts">
+  import { useHoverIntent } from 'vue-use-hover-intent'
 
-```js
-// ESM
-import { } from 'packageName'
+  const elementRef = ref<HTMLElement>()
 
-// CommonJS
-const { } = require('packageName')
+  // with default options
+  const isHovering = useHoverIntent(elementRef)
+
+  // with custom options
+  const isHoveringWithOptions = useHoverIntent(elementRef, {
+    sensitivity: 4,
+    interval: 50,
+    timeout: 0,
+  })
+</script>
+
+<template>
+  <div>
+    <div ref="elementRef">
+      <p v-if="isHovering">Hovering</p>
+      <p v-else>Not hovering</p>
+    </div>
+  </div>
+</template>
 ```
+
+## Options
+You can pass following options to the `useHoverIntent` composable as a second parameter:
+
+
+```timeout``` : Delay in milliseconds before the onMouseOut callback is fired. If the user mouses back over the
+element before the timeout has expired the onMouseOut callback will not be called (nor will the onMouseOver callback be
+called). This is primarily to protect against sloppy/human mousing trajectories that temporarily (and unintentionally)
+take the user off of the target element... giving them time to return.
+
+Default ```timeout: 100```
+
+```sensitivity``` : If the mouse travels fewer than this number of pixels between polling intervals, then the onMouseOver
+callback will be called. With the minimum sensitivity threshold of 1, the mouse must not move between polling intervals.
+With higher sensitivity thresholds you are more likely to receive a false positive.
+
+Default ```sensitivity: 6```
+
+```interval``` : The number of milliseconds hoverIntent waits between reading/comparing mouse coordinates. When the user's
+mouse first enters the element its coordinates are recorded. The soonest the onMouseOut callback can be called is after
+a single polling interval. Setting the polling interval higher will increase the delay before the first possible
+onMouseOver call, but also increases the time to the next point of comparison.
+
+Default ```interval: 100```
+
 
 ## 💻 Development
 
@@ -46,14 +89,8 @@ Made with 💛
 Published under [MIT License](./LICENSE).
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/packageName?style=flat-square
-[npm-version-href]: https://npmjs.com/package/packageName
+[npm-version-src]: https://img.shields.io/npm/v/vue-use-hover-intent?style=flat-square
+[npm-version-href]: https://npmjs.com/package/vue-use-hover-intent
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/packageName?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/packageName
-
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/packageName/ci/main?style=flat-square
-[github-actions-href]: https://github.com/unjs/packageName/actions?query=workflow%3Aci
-
-[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/packageName/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/unjs/packageName
+[npm-downloads-src]: https://img.shields.io/npm/dm/vue-use-hover-intent?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/vue-use-hover-intent
