@@ -66,7 +66,7 @@ export function useHoverIntent (
     }
   }
 
-  const dispatchOut = (e: MouseEvent) => {
+  const dispatchOut = () => {
     if (timer) {
       clearTimeout(timer)
     }
