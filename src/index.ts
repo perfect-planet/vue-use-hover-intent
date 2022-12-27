@@ -24,7 +24,7 @@ export function useHoverIntent (
     return value
   }
 
-  const delay = (e: MouseEvent) => {
+  const delay = () => {
     if (timer) {
       clearTimeout(timer)
     }
