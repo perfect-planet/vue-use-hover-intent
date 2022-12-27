@@ -1,6 +1,6 @@
 {
   "name": "vue-use-hover-intent",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue 3 composable event listener that waits until the user's mouse slows down enough and then calls a function.",
   "repository": "perfect-planet/vue-use-hover-intent",
   "keywords": [
