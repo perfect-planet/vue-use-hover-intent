@@ -74,7 +74,7 @@ export function useHoverIntent (
       target.value.removeEventListener('mousemove', tracker, false)
     }
     if (isHovering.value) {
-      timer = window.setTimeout(() => delay(e), timeout)
+      timer = window.setTimeout(() => delay(), timeout)
     }
   }
 
