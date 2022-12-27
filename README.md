@@ -3,7 +3,7 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 
-> Vue 3 composable event listener that waits until the user's mouse slows down enough and then calls a function.
+> Vue 3 composable hover detection that waits until the user's mouse slows down enough.
 
 This is a Vue 3 port of [react-use-hoverintent](https://github.com/natelindev/react-use-hoverintent)
 
