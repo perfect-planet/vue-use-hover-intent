@@ -12,6 +12,8 @@ This is a Vue 3 port of [react-use-hoverintent](https://github.com/natelindev/re
 
 ## Usage
 
+### Install:
+
 ```sh
 # npm
 npm install vue-use-hover-intent
@@ -22,6 +24,11 @@ yarn add vue-use-hover-intent
 # pnpm
 pnpm install vue-use-hover-intent
 ```
+
+### Use:
+
+Import the composable and use it in your components setup function, passing in the element you want to detect hover on.
+It returns a boolean ref that is true when the user is hovering over the element.
 
 ```vue
 <script setup lang="ts">
